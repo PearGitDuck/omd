@@ -3,7 +3,7 @@ import csv
 
 def get_hierarchy():
     """Открывает csv, получает и выводит словарь {Департамент: {отделы} } """
-    with open('dz_1/Corp_Summary.csv', 'r', encoding='utf-8') as file:
+    with open('Corp_Summary.csv', 'r', encoding='utf-8') as file:
         csvreader = csv.reader(file, delimiter=';')
 
         line_count = 0
@@ -28,7 +28,7 @@ def get_hierarchy():
 
 def get_report():
     """Возвращает сводный отчёт по департаментам:"""
-    with open('dz_1/Corp_Summary.csv', 'r', encoding='utf-8') as file:
+    with open('Corp_Summary.csv', 'r', encoding='utf-8') as file:
         csvreader = csv.reader(file, delimiter=';')
 
         line_count = 0
@@ -68,7 +68,7 @@ def save_report():
     """Сохраняет сводный отчет в csv файл"""
     report = get_report()
 
-    with open('dz_1/report.csv', 'w', encoding='utf-8') as file:
+    with open('report.csv', 'w', encoding='utf-8') as file:
         writer = csv.writer(file)
         header = ['Департамент', 'Количество сотрудников',
                   'Минимальная Зарплата', 'Максимальная зарплата',
@@ -85,8 +85,7 @@ def save_report():
             writer.writerow(data)
 
 
-if __name__ == '__main__':
-
+def get_menu():
     print('Меню\n'
           '1. Вывести иерархию команд\n'
           '2. Вывести сводный отчёт по департаментам\n'
@@ -105,3 +104,7 @@ if __name__ == '__main__':
 
     if answer == '3':
         save_report()
+
+
+if __name__ == '__main__':
+    get_menu()
