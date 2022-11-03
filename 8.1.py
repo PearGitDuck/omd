@@ -16,7 +16,8 @@ class Color:
     def __eq__(self, other):
         if type(other) != Color:
             return False
-        return all(self.__dict__[col] == other.__dict__[col] for col in self.__dict__)
+        return all(self.__dict__[col] == other.__dict__[col]
+                   for col in self.__dict__)
 
     def __add__(self, other):
         return Color(min(255, self.red + other.red),
